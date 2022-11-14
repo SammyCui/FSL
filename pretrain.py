@@ -5,9 +5,9 @@ import shutil
 import torch
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
-from model.models.classifier import Classifier
-from model.dataloader.samplers import CategoriesSampler
-from model.utils import pprint, set_gpu, ensure_path, Averager, Timer, count_acc, euclidean_metric
+from models.classifier import Classifier
+from dataloader.samplers import CategoriesSampler
+from utils import pprint, set_gpu, ensure_path, Averager, Timer, count_acc, euclidean_metric
 from tensorboardX import SummaryWriter
 from tqdm import tqdm
 

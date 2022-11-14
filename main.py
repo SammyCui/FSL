@@ -1,7 +1,7 @@
 import numpy as np
 import torch
-from model.trainer.fsl_trainer import FSLTrainer
-from model.utils import (
+from trainer.fsl_trainer import FSLTrainer
+from utils import (
     pprint, set_gpu,
     get_command_line_parser,
     postprocess_args,
