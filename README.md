@@ -1,1 +1,3 @@
-# task-adaptive-FSL[tafsl-proposal.pdf](https://github.com/SammyCui/task-adaptive-FSL/files/10004336/tafsl-proposal.pdf)
+# Ongoing project for task-adaptive FSL
+
+<img src="https://github.com/SammyCui/task-adaptive-FSL/blob/master/architecture.jpg" width='600'>
