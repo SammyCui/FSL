@@ -5,11 +5,11 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 
-from model.trainer.base import Trainer
-from model.trainer.helpers import (
+from models.trainer.base import Trainer
+from models.trainer.helpers import (
     get_dataloader, prepare_model, prepare_optimizer,
 )
-from model.utils import (
+from models.utils import (
     pprint, ensure_path,
     Averager, Timer, count_acc, one_hot,
     compute_confidence_interval,
@@ -113,7 +113,7 @@ class FSLTrainer(Trainer):
         self.save_model('epoch-last')
 
     def evaluate(self, data_loader):
-        # restore model args
+        # restore models args
         args = self.args
         # evaluation mode
         self.model.eval()
@@ -151,7 +151,7 @@ class FSLTrainer(Trainer):
         return vl, va, vap
 
     def evaluate_test(self):
-        # restore model args
+        # restore models args
         args = self.args
         # evaluation mode
         self.model.load_state_dict(torch.load(osp.join(self.args.save_path, 'max_acc.pth'))['params'])

@@ -11,7 +11,7 @@ from utils import pprint, set_gpu, ensure_path, Averager, Timer, count_acc, eucl
 from tensorboardX import SummaryWriter
 from tqdm import tqdm
 
-# pre-train model, compute validation acc after 500 epoches
+# pre-train models, compute validation acc after 500 epoches
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--batch_size', type=int, default=16)
@@ -37,11 +37,11 @@ if __name__ == '__main__':
 
     if args.dataset == 'MiniImageNet':
         # Handle MiniImageNet
-        from model.dataloader.mini_imagenet import MiniImageNet as Dataset
+        from models.dataloader.mini_imagenet import MiniImageNet as Dataset
     elif args.dataset == 'CUB':
-        from model.dataloader.cub import CUB as Dataset
+        from models.dataloader.cub import CUB as Dataset
     elif args.dataset == 'TieredImagenet':
-        from model.dataloader.tiered_imagenet import tieredImageNet as Dataset    
+        from models.dataloader.tiered_imagenet import tieredImageNet as Dataset
     else:
         raise ValueError('Non-supported Dataset.')
 
@@ -54,7 +54,7 @@ if __name__ == '__main__':
     args.way = valset.num_class
     args.shot = 1
     
-    # construct model
+    # construct models
     model = Classifier(args)
     if 'Conv' in  args.backbone_class:
         optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, weight_decay=0.0005)
